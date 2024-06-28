@@ -23,6 +23,6 @@ Este proyecto contiene un conjunto de sentencias SQL necesarias en la entrega de
   - Copiar el contenido de la carpeta **src** y **drivers**.
   - Configurar en el classpath el .Jar de la carpeta **drivers**.
   - Haber ejecutado previamente las sentencias SQL antes descriptas.
-  - Cambiar en la clase <main> los datos de conexión con la Base de Datos.
+  - Cambiar en la clase `main` los datos de conexión con la Base de Datos.
 
 
