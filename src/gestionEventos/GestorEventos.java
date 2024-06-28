@@ -1,26 +1,26 @@
 package gestionEventos;
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class GestorEventos {
-    private List<Evento> eventos;
+    private EventoModelo eventoModelo;
 
-    public GestorEventos() {
-        eventos = new ArrayList<>();
+    public GestorEventos(EventoModelo eventoModelo) {
+        this.eventoModelo = eventoModelo;
     }
 
     public void agregarEvento(Evento evento) {
-        eventos.add(evento);
-    }
-
-    public void actualizarEvento(Evento evento) {
+        eventoModelo.agregarEvento(evento);
     }
 
     public void eliminarEvento(int codigoEvento) {
-        eventos.removeIf(evento -> evento.getCodigoEvento() == codigoEvento);
+        eventoModelo.eliminarEvento(codigoEvento);
     }
 
     public List<Evento> listarEventos() {
-        return eventos;
+        return eventoModelo.listarEventos();
+    }
+
+    public void actualizarEvento(Evento evento) {
     }
 }

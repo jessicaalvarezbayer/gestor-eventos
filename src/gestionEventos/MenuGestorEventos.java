@@ -1,4 +1,5 @@
 package gestionEventos;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -73,7 +74,7 @@ public class MenuGestorEventos {
             System.out.print("Ingrese la fecha del evento (yyyy-mm-dd): ");
             String fechaStr = scanner.nextLine();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd", Locale.ROOT);
-            Date fecha =  formatter.parse(fechaStr);
+            Date fecha = formatter.parse(fechaStr);
 
             System.out.print("Ingrese la imagen del evento: ");
             String imagen = scanner.nextLine();
@@ -82,7 +83,8 @@ public class MenuGestorEventos {
 
             List<Inscripto> inscriptos = new ArrayList<>();
 
-            Evento evento = new Evento(codigoEvento, titulo, descripcionCorta, descripcionExtensa, fecha, imagen, estado, inscriptos);
+            Evento evento = new Evento(codigoEvento, titulo, descripcionCorta, descripcionExtensa, fecha, imagen,
+                    estado, inscriptos);
             gestorEventos.agregarEvento(evento);
 
             System.out.println("Evento agregado exitosamente.");
@@ -95,8 +97,12 @@ public class MenuGestorEventos {
 
     private void listarEventos() {
         List<Evento> eventos = gestorEventos.listarEventos();
+        if (eventos.isEmpty()) {
+            System.out.println("No hay eventos para mostrar.");
+            return;
+        }
         for (Evento evento : eventos) {
-            System.out.println("Código: " + evento.getCodigoEvento() + ", Título: " + evento.getTitulo());
+            System.out.println("Código: " + evento.getCodigoEvento() + ", Título: " + evento.getTitulo() + ", Descripción corta: " + evento.getDescripcionCorta() );
         }
     }
 
@@ -105,6 +111,9 @@ public class MenuGestorEventos {
     }
 
     private void eliminarEvento() {
-        // Lógica para eliminar evento
+        System.out.print("Ingrese el código del evento a eliminar: ");
+        int codigoEvento = scanner.nextInt();
+        gestorEventos.eliminarEvento(codigoEvento);
+        System.out.println("Evento eliminado exitosamente.");
     }
 }
