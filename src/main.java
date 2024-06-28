@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class main {
     public static void main(String[] args) {
-        try (Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/EVENTOS", "root", "Sura2015")) {
+        try (Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/EVENTOS", "root", "password")) {
             EventoModelo eventoModelo = new EventoModelo(conexion);
             GestorEventos gestorEventos = new GestorEventos(eventoModelo);
             MenuGestorEventos view = new MenuGestorEventos(gestorEventos);
